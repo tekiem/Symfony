@@ -1,0 +1,4 @@
+services:
+#    kevin_platform.example:
+#        class: Kevin\PlatformBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,7 @@
+kevin_platform:
+    resource: "@KevinPlatformBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
