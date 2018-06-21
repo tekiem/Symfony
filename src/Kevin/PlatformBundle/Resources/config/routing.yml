@@ -1,3 +1,33 @@
-kevin_platform_homepage:
-    path:     /
-    defaults: { _controller: KevinPlatformBundle:Default:index }
+kevin_platform_home:
+    path:      /{page}
+    defaults:
+        _controller: KevinPlatformBundle:Advert:index
+        page:        1
+    requirements:
+        page: \d*
+
+kevin_platform_view:
+    path:      /advert/{id}
+    defaults:
+        _controller: KevinPlatformBundle:Advert:view
+    requirements:
+        id: \d+
+
+kevin_platform_add:
+    path:      /add
+    defaults:
+        _controller: KevinPlatformBundle:Advert:add
+
+kevin_platform_edit:
+    path:      /edit/{id}
+    defaults:
+        _controller: KevinPlatformBundle:Advert:edit
+    requirements:
+        id: \d+
+
+kevin_platform_delete:
+    path:      /delete/{id}
+    defaults:
+        _controller: KevinPlatformBundle:Advert:delete
+    requirements:
+        id: \d+
