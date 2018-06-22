@@ -1,0 +1,16 @@
+2545ba,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/,1529626735,62529c,200
+62529c,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/,1529626735,,404
+a8335d,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKevinPlatformBundle%253AAdvert%253Amenu,1529626757,06d85a,200
+06d85a,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/add,1529626757,,200
+f08ed6,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKevinPlatformBundle%253AAdvert%253Amenu,1529626760,47a6a5,200
+47a6a5,::1,GET,http://localhost/Symfony/web/app_dev.php/platform,1529626760,,200
+45729d,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKevinPlatformBundle%253AAdvert%253Amenu,1529626763,845763,200
+845763,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/2,1529626763,,200
+73a94e,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKevinPlatformBundle%253AAdvert%253Amenu,1529626765,29b6cf,200
+29b6cf,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/5,1529626765,,200
+43c7d7,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKevinPlatformBundle%253AAdvert%253Amenu,1529626767,1077c7,200
+1077c7,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/9,1529626767,,200
+a07d3b,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKevinPlatformBundle%253AAdvert%253Amenu,1529626770,622078,200
+622078,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/edit/9,1529626770,,200
+7e3408,127.0.0.1,GET,http://localhost/Symfony/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DKevinPlatformBundle%253AAdvert%253Amenu,1529626771,d04c0f,200
+d04c0f,::1,GET,http://localhost/Symfony/web/app_dev.php/platform,1529626771,,200
