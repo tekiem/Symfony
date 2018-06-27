@@ -9,11 +9,50 @@
 {% block kevinplatform_body %}
 
     <h2>{{ advert.title }}</h2>
+    {% if advert.image is not null %}
+        <div style=display:block">
+            <img style="width:50%;" src="{{ advert.image.url }}" alt="{{ advert.image.alt }}">
+        </div>
+        {% endif %}
     <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>
 
     <div class="well">
+        
         {{ advert.content }}
     </div>
+    <h3> Candidature </h3>
+     {% for adverte in listApplications %}
+     <table>
+     <tr>   
+     <th><p> {{ adverte.author }} </p>
+     </th>
+     </tr>
+     <tr>
+     <td><p> {{ adverte.content }} </p>
+     </td>
+     </tr>
+     </table>
+     {% endfor %}
+     <hr/>
+    {% if not advert.categories.empty %}
+        <p>
+            Cette annonce est parue dans les catégories suivantes :
+            {% for category in advert.categories %}
+                {{ category.name }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    {% endif %}
+
+    {% if listAdvertSkills|length > 0 %}
+  <div>
+    Cette annonce requiert les compétences suivantes :
+    <ul>
+      {% for advertSkill in listAdvertSkills %}
+        <li>{{ advertSkill.skill.name }} : niveau {{ advertSkill.level }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
 
     <p>
         <a href="{{ path('kevin_platform_home') }}" class="btn btn-default">

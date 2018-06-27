@@ -152,6 +152,6 @@ class __TwigTemplate_92ca6eda225d9aaa037c339fae417dcb22c8919e353301b02010f2cba0b
         </a>
     </p>
 
-{% endblock %}", "KevinPlatformBundle:Advert:edit.html.twig", "C:\\wamp\\www\\Symfony\\src\\Kevin\\PlatformBundle/Resources/views/Advert/edit.html.twig");
+{% endblock %}", "KevinPlatformBundle:Advert:edit.html.twig", "C:\\wamp64\\www\\Symfony\\src\\Kevin\\PlatformBundle/Resources/views/Advert/edit.html.twig");
     }
 }
