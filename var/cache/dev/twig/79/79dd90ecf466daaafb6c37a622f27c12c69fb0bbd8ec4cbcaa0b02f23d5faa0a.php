@@ -155,6 +155,6 @@ class __TwigTemplate_3af4b2fd8c4803621ff4cbc57bb89cefae482cc994871165195872b7ffa
     {% block kevinplatform_body %}
     {% endblock %}
 
-{% endblock %}", "KevinPlatformBundle::layout.html.twig", "C:\\wamp\\www\\Symfony\\src\\Kevin\\PlatformBundle/Resources/views/layout.html.twig");
+{% endblock %}", "KevinPlatformBundle::layout.html.twig", "C:\\wamp64\\www\\Symfony\\src\\Kevin\\PlatformBundle/Resources/views/layout.html.twig");
     }
 }

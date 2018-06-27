@@ -805,7 +805,7 @@ class __TwigTemplate_715664de4625da9b48b38cc8e6bfab7cb297ae384d3551d207b1a625a46
             $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "macro", "dump_request_data"));
 
             // line 503
-            $context["__internal_93827751690fcc2eb385ad1f54f2edbc0d7ee9df0f3220f07fc4dbf6ed264abd"] = $this;
+            $context["__internal_ea37038630b35ad9183df9e1dc95dfaca48082c81729f902c717a6ee6034d806"] = $this;
             // line 504
             echo "                {
                     \"id\": \"";
@@ -819,7 +819,7 @@ class __TwigTemplate_715664de4625da9b48b38cc8e6bfab7cb297ae384d3551d207b1a625a46
                     \"events\": [
 ";
             // line 508
-            echo $context["__internal_93827751690fcc2eb385ad1f54f2edbc0d7ee9df0f3220f07fc4dbf6ed264abd"]->getdump_events(($context["events"] ?? $this->getContext($context, "events")));
+            echo $context["__internal_ea37038630b35ad9183df9e1dc95dfaca48082c81729f902c717a6ee6034d806"]->getdump_events(($context["events"] ?? $this->getContext($context, "events")));
             echo "
                     ]
                 }
@@ -1623,6 +1623,6 @@ class __TwigTemplate_715664de4625da9b48b38cc8e6bfab7cb297ae384d3551d207b1a625a46
         <canvas width=\"680\" height=\"\" id=\"{{ id }}\" class=\"timeline\"></canvas>
     </div>
 {% endmacro %}
-", "@WebProfiler/Collector/time.html.twig", "C:\\wamp\\www\\Symfony\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle\\Resources\\views\\Collector\\time.html.twig");
+", "@WebProfiler/Collector/time.html.twig", "C:\\wamp64\\www\\Symfony\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle\\Resources\\views\\Collector\\time.html.twig");
     }
 }

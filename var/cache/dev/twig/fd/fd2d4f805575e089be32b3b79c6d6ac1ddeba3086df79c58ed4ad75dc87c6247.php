@@ -173,6 +173,6 @@ class __TwigTemplate_261f63cd3c48a018db0409241e53ace2eb0b5a9803279fa02a0d91ab459
         {% endfor %}
     </ul>
 
-{% endblock %}", "KevinPlatformBundle:Advert:index.html.twig", "C:\\wamp\\www\\Symfony\\src\\Kevin\\PlatformBundle/Resources/views/Advert/index.html.twig");
+{% endblock %}", "KevinPlatformBundle:Advert:index.html.twig", "C:\\wamp64\\www\\Symfony\\src\\Kevin\\PlatformBundle/Resources/views/Advert/index.html.twig");
     }
 }
