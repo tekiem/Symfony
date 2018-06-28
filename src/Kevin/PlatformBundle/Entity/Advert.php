@@ -55,6 +55,11 @@ class Advert
     */
     private $published = true;
 
+    /**
+    * @ORM\OneToMany(targetEntity="Kevin\PlatformBundle\Entity\Application", mappedBy="advert")
+    */
+    private $applications; // Notez le « s », une annonce est liée à plusieurs candidatures
+
       public function __construct()
     {
         // Par défaut, la date de l'annonce est la date d'aujourd'hui
@@ -257,5 +262,41 @@ class Advert
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Add application
+     *
+     * @param \Kevin\PlatformBundle\Entity\Application $application
+     *
+     * @return Advert
+     */
+    public function addApplication(\Kevin\PlatformBundle\Entity\Application $application)
+    {
+        $this->applications[] = $application;
+
+        $application->setAdvert($this);
+    
+        return $this;
+    }
+
+    /**
+     * Remove application
+     *
+     * @param \Kevin\PlatformBundle\Entity\Application $application
+     */
+    public function removeApplication(\Kevin\PlatformBundle\Entity\Application $application)
+    {
+        $this->applications->removeElement($application);
+    }
+
+    /**
+     * Get applications
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getApplications()
+    {
+        return $this->applications;
     }
 }
