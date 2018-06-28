@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @ORM\Table(name="advert")
  * @ORM\Entity(repositoryClass="Kevin\PlatformBundle\Repository\AdvertRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Advert
 {
@@ -75,6 +76,11 @@ class Advert
      * @ORM\ManyToMany(targetEntity="Kevin\PlatformBundle\Entity\Category", cascade={"persist"})
      */
     private $categories;
+
+    /**
+    * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+    */
+    private $updatedAt;
 
     /**
      * Get id
@@ -299,4 +305,6 @@ class Advert
     {
         return $this->applications;
     }
+
+
 }
