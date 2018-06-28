@@ -113,6 +113,34 @@ class __TwigTemplate_261f63cd3c48a018db0409241e53ace2eb0b5a9803279fa02a0d91ab459
         // line 25
         echo "    </ul>
 
+<ul class=\"pagination\">
+  ";
+        // line 29
+        echo "  ";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(range(1, ($context["nbPages"] ?? $this->getContext($context, "nbPages"))));
+        foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
+            // line 30
+            echo "    <li";
+            if (($context["p"] == ($context["page"] ?? $this->getContext($context, "page")))) {
+                echo " class=\"active\"";
+            }
+            echo ">
+      <a href=\"";
+            // line 31
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("kevin_platform_home", array("page" => $context["p"])), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, $context["p"], "html", null, true);
+            echo "</a>
+    </li>
+  ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 34
+        echo "</ul>
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -134,7 +162,7 @@ class __TwigTemplate_261f63cd3c48a018db0409241e53ace2eb0b5a9803279fa02a0d91ab459
 
     public function getDebugInfo()
     {
-        return array (  114 => 25,  107 => 23,  99 => 20,  95 => 19,  90 => 17,  86 => 16,  83 => 15,  78 => 14,  72 => 10,  63 => 9,  50 => 6,  41 => 5,  11 => 3,);
+        return array (  142 => 34,  131 => 31,  124 => 30,  119 => 29,  114 => 25,  107 => 23,  99 => 20,  95 => 19,  90 => 17,  86 => 16,  83 => 15,  78 => 14,  72 => 10,  63 => 9,  50 => 6,  41 => 5,  11 => 3,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -173,6 +201,17 @@ class __TwigTemplate_261f63cd3c48a018db0409241e53ace2eb0b5a9803279fa02a0d91ab459
         {% endfor %}
     </ul>
 
-{% endblock %}", "KevinPlatformBundle:Advert:index.html.twig", "C:\\wamp64\\www\\Symfony\\src\\Kevin\\PlatformBundle/Resources/views/Advert/index.html.twig");
+<ul class=\"pagination\">
+  {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+  {% for p in range(1, nbPages) %}
+    <li{% if p == page %} class=\"active\"{% endif %}>
+      <a href=\"{{ path('kevin_platform_home', {'page': p}) }}\">{{ p }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
+
+", "KevinPlatformBundle:Advert:index.html.twig", "C:\\wamp64\\www\\Symfony\\src\\Kevin\\PlatformBundle/Resources/views/Advert/index.html.twig");
     }
 }

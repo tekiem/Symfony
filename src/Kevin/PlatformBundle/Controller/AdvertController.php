@@ -29,30 +29,26 @@ class AdvertController extends Controller
             throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
         }
 
-        $listAdverts = array(
-            array(
-                'title'   => 'Recherche développpeur Symfony',
-                'id'      => 1,
-                'author'  => 'Alexandre',
-                'content' => 'Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…',
-                'date'    => new \Datetime()),
-            array(
-                'title'   => 'Mission de webmaster',
-                'id'      => 2,
-                'author'  => 'Hugo',
-                'content' => 'Nous recherchons un webmaster capable de maintenir notre site internet. Blabla…',
-                'date'    => new \Datetime()),
-            array(
-                'title'   => 'Offre de stage webdesigner',
-                'id'      => 3,
-                'author'  => 'Mathieu',
-                'content' => 'Nous proposons un poste pour webdesigner. Blabla…',
-                'date'    => new \Datetime())
-        );
+        $nbPerPage = 3;
+
+            // Pour récupérer la liste de toutes les annonces : on utilise findAll()
+        $listAdverts = $this->getDoctrine()
+          ->getManager()
+          ->getRepository('KevinPlatformBundle:Advert')
+          ->getAdverts($page, $nbPerPage)
+        ;
+
+        // On calcule le nombre total de pages grâce au count($listAdverts) qui retourne le nombre total d'annonces
+        $nbPages = ceil(count($listAdverts) / $nbPerPage);
+        if ($page > $nbPages) {
+          throw $this->createNotFoundException("La page ".$page." n'existe pas.");
+        }
 
         // Et modifiez le 2nd argument pour injecter notre liste
         return $this->render('KevinPlatformBundle:Advert:index.html.twig', array(
-            'listAdverts' => $listAdverts
+            'listAdverts' => $listAdverts,
+            'nbPages'     => $nbPages,
+            'page'        => $page,
         ));
     }
 
@@ -95,52 +91,7 @@ class AdvertController extends Controller
     {
         // On récupère l'EntityManager
     $em = $this->getDoctrine()->getManager();
-        // Création de l'entité
-        $advert = new Advert();
-        $advert->setTitle('Recherche développeur Symfony.');
-        $advert->setAuthor('Alexandre');
-        $advert->setContent("Nous recherchons un développeur Symfony débutant sur Paris. Blabla…");
-        // On récupère toutes les compétences possibles
-        $listSkills = $em->getRepository('KevinPlatformBundle:Skill')->findAll();
-
-        // Pour chaque compétence
-        foreach ($listSkills as $skill) {
-          // On crée une nouvelle « relation entre 1 annonce et 1 compétence »
-          $advertSkill = new AdvertSkill();
-
-          // On la lie à l'annonce, qui est ici toujours la même
-          $advertSkill->setAdvert($advert);
-          // On la lie à la compétence, qui change ici dans la boucle foreach
-          $advertSkill->setSkill($skill);
-
-          // Arbitrairement, on dit que chaque compétence est requise au niveau 'Expert'
-          $advertSkill->setLevel('Expert');
-
-          // Et bien sûr, on persiste cette entité de relation, propriétaire des deux autres relations
-          $em->persist($advertSkill);
-        }
-
-        // Création d'une première candidature
-        $application1 = new Application();
-        $application1->setAuthor('Marine');
-        $application1->setContent("J'ai toutes les qualités requises.");
-
-        // Création d'une deuxième candidature par exemple
-        $application2 = new Application();
-        $application2->setAuthor('Pierre');
-        $application2->setContent("Je suis très motivé.");
-
-        // On lie les candidatures à l'annonce
-        $application1->setAdvert($advert);
-        $application2->setAdvert($advert);
-
-
-        // Étape 1 : On « persiste » l'entité
-        $em->persist($advert);
-        $em->persist($application1);
-        $em->persist($application2);
-        // Étape 2 : On « flush » tout ce qui a été persisté avant
-        $em->flush();
+     
 
         // Reste de la méthode qu'on avait déjà écrit
         if ($request->isMethod('POST')) {
@@ -151,20 +102,12 @@ class AdvertController extends Controller
         }
 
         // Si on n'est pas en POST, alors on affiche le formulaire
-        return $this->render('KevinPlatformBundle:Advert:add.html.twig', array('advert' => $advert));
+        return $this->render('KevinPlatformBundle:Advert:add.html.twig');
     }
 
     public function editAction($id, Request $request)
     {
         // Ici, on récupérera l'annonce correspondante à $id
-
-        // Même mécanisme que pour l'ajout
-        if ($request->isMethod('POST')) {
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
-
-            return $this->redirectToRoute('kevin_platform_view', array('id' => 5));
-        }
-
         $em = $this->getDoctrine()->getManager();
 
         // On récupère l'annonce $id
@@ -174,19 +117,12 @@ class AdvertController extends Controller
           throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
-        // La méthode findAll retourne toutes les catégories de la base de données
-        $listCategories = $em->getRepository('KevinPlatformBundle:Category')->findAll();
+        // Même mécanisme que pour l'ajout
+        if ($request->isMethod('POST')) {
+            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
 
-        // On boucle sur les catégories pour les lier à l'annonce
-        foreach ($listCategories as $category) {
-          $advert->addCategory($category);
+            return $this->redirectToRoute('kevin_platform_view', array('id' => $advert->getId()));
         }
-
-        // Pour persister le changement dans la relation, il faut persister l'entité propriétaire
-        // Ici, Advert est le propriétaire, donc inutile de la persister car on l'a récupérée depuis Doctrine
-
-        // Étape 2 : On déclenche l'enregistrement
-        $em->flush();
 
         return $this->render('KevinPlatformBundle:Advert:edit.html.twig', array(
             'advert' => $advert
@@ -220,12 +156,13 @@ class AdvertController extends Controller
 
     public function menuAction($limit)
     {
-        // On fixe en dur une liste ici, bien entendu par la suite
-        // on la récupérera depuis la BDD !
-        $listAdverts = array(
-            array('id' => 2, 'title' => 'Recherche développeur Symfony'),
-            array('id' => 5, 'title' => 'Mission de webmaster'),
-            array('id' => 9, 'title' => 'Offre de stage webdesigner')
+        $em = $this->getDoctrine()->getManager();
+
+        $listAdverts = $em->getRepository('KevinPlatformBundle:Advert')->findBy(
+          array(),                 // Pas de critère
+          array('date' => 'desc'), // On trie par date décroissante
+          $limit,                  // On sélectionne $limit annonces
+          0                        // À partir du premier
         );
 
         return $this->render('KevinPlatformBundle:Advert:menu.html.twig', array(
