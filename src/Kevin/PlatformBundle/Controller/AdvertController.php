@@ -5,6 +5,7 @@
 namespace Kevin\PlatformBundle\Controller;
 
 // N'oubliez pas ce use :
+use Kevin\PlatformBundle\Form\AdvertType;
 use Kevin\PlatformBundle\Entity\Advert;
 use Kevin\PlatformBundle\Entity\Image;
 use Kevin\PlatformBundle\Entity\Application;
@@ -16,6 +17,12 @@ use Symfony\Component\HttpFoundation\RedirectResponse; // N'oubliez pas ce use
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class AdvertController extends Controller
 {
@@ -89,20 +96,29 @@ class AdvertController extends Controller
 
     public function addAction(Request $request)
     {
-        // On récupère l'EntityManager
-    $em = $this->getDoctrine()->getManager();
-     
+    // On crée un objet Advert
+    $advert = new Advert();
+    $form = $this->createForm(AdvertType::class, $advert);
 
-        // Reste de la méthode qu'on avait déjà écrit
-        if ($request->isMethod('POST')) {
-          $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+        // Si la requête est en POST
+    if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($advert);
+      $em->flush();
 
-          // Puis on redirige vers la page de visualisation de cettte annonce
-          return $this->redirectToRoute('kevin_platform_view', array('id' => $advert->getId()));
-        }
+        $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
 
-        // Si on n'est pas en POST, alors on affiche le formulaire
-        return $this->render('KevinPlatformBundle:Advert:add.html.twig');
+        // On redirige vers la page de visualisation de l'annonce nouvellement créée
+        return $this->redirectToRoute('kevin_platform_view', array('id' => $advert->getId()));
+      }
+    
+
+    // On passe la méthode createView() du formulaire à la vue
+    // afin qu'elle puisse afficher le formulaire toute seule
+    return $this->render('KevinPlatformBundle:Advert:add.html.twig', array(
+      'form' => $form->createView(),
+    ));
+  
     }
 
     public function editAction($id, Request $request)
