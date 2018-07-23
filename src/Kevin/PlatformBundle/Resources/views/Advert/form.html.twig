@@ -8,6 +8,7 @@
   {# Les erreurs générales du formulaire. #}
   {{ form_errors(form) }}
 
+  {% if form.date is defined %}
   {# Génération du label + error + widget pour un champ. #}
     <div class="form-group">
     {# Génération du label. #}
@@ -21,7 +22,7 @@
       {{ form_widget(form.date) }}
     </div>
   </div>
-
+  {% endif %}
 
   {# Génération manuelle et éclatée : #}
   <div class="form-group">

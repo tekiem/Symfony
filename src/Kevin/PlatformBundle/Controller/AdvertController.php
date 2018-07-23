@@ -6,6 +6,7 @@ namespace Kevin\PlatformBundle\Controller;
 
 // N'oubliez pas ce use :
 use Kevin\PlatformBundle\Form\AdvertType;
+use Kevin\PlatformBundle\Form\AdvertEditType;
 use Kevin\PlatformBundle\Entity\Advert;
 use Kevin\PlatformBundle\Entity\Image;
 use Kevin\PlatformBundle\Entity\Application;
@@ -128,20 +129,25 @@ class AdvertController extends Controller
 
         // On récupère l'annonce $id
         $advert = $em->getRepository('KevinPlatformBundle:Advert')->find($id);
+        $form = $this->createForm(AdvertEditType::class, $advert);
 
         if (null === $advert) {
           throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
         // Même mécanisme que pour l'ajout
-        if ($request->isMethod('POST')) {
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($advert);
+            $em->flush(); 
             $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
 
             return $this->redirectToRoute('kevin_platform_view', array('id' => $advert->getId()));
         }
 
         return $this->render('KevinPlatformBundle:Advert:edit.html.twig', array(
-            'advert' => $advert
+            'advert' => $advert,
+            'form' => $form->createView(),
         ));
     }
 

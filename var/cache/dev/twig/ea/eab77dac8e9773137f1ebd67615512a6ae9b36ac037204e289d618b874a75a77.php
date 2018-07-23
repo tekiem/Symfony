@@ -38,48 +38,54 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
         echo "
 
   ";
-        // line 12
-        echo "    <div class=\"form-group\">
+        // line 11
+        if ($this->getAttribute(($context["form"] ?? null), "date", array(), "any", true, true)) {
+            // line 12
+            echo "  ";
+            // line 13
+            echo "    <div class=\"form-group\">
     ";
-        // line 14
-        echo "    ";
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "date", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "date"));
-        echo "
+            // line 15
+            echo "    ";
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "date", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "date"));
+            echo "
 
     ";
-        // line 17
-        echo "    ";
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "date", array()), 'errors');
-        echo "
+            // line 18
+            echo "    ";
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "date", array()), 'errors');
+            echo "
 
     <div class=\"col-sm-10\">
       ";
-        // line 21
-        echo "      ";
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "date", array()), 'widget');
-        echo "
+            // line 22
+            echo "      ";
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "date", array()), 'widget');
+            echo "
     </div>
   </div>
-
-
   ";
-        // line 27
+        }
+        // line 26
+        echo "
+  ";
+        // line 28
         echo "  <div class=\"form-group\">
     ";
-        // line 29
+        // line 30
         echo "    ";
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "title", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Titre de l'annonce"));
         echo "
 
     ";
-        // line 32
+        // line 33
         echo "    ";
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "title", array()), 'errors');
         echo "
 
     <div class=\"col-sm-10\">
       ";
-        // line 36
+        // line 37
         echo "      ";
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "title", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
@@ -87,19 +93,19 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
   </div>
 
   ";
-        // line 41
+        // line 42
         echo "  <div class=\"form-group\">
     ";
-        // line 42
+        // line 43
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "content", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Contenu de l'annonce"));
         echo "
     ";
-        // line 43
+        // line 44
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "content", array()), 'errors');
         echo "
     <div class=\"col-sm-10\">
       ";
-        // line 45
+        // line 46
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "content", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
   \t</div>
@@ -107,14 +113,14 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
 
  <div class=\"form-group\">
    ";
-        // line 51
+        // line 52
         echo "    ";
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "author", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Author"));
         echo "
 
      <div class=\"col-sm-10\">
       ";
-        // line 55
+        // line 56
         echo "      ";
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "author", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
@@ -123,21 +129,21 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
 
  <div style=\"text-align:center;\">
   ";
-        // line 60
+        // line 61
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "published", array()), 'row');
         echo "
 </div>
 
  <div class=\"form-group\">
    ";
-        // line 65
+        // line 66
         echo "    ";
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "image", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Image"));
         echo "
 
      <div class=\"col-sm-10\">
       ";
-        // line 69
+        // line 70
         echo "      ";
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "image", array()), 'widget');
         echo "
@@ -145,11 +151,11 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
   </div>
  
 ";
-        // line 75
+        // line 76
         echo " <div class=\"form-group\">
  <div style=\"width:80%; margin:0 auto;\">
   ";
-        // line 77
+        // line 78
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "categories", array()), 'row');
         echo "
   </div>
@@ -158,11 +164,11 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
 
 
 ";
-        // line 85
+        // line 86
         echo "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
 
 ";
-        // line 88
+        // line 89
         echo "<script type=\"text/javascript\">
   \$(document).ready(function() {
     // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
@@ -234,21 +240,21 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
 
 
   ";
-        // line 159
+        // line 160
         echo "   <div style=\"text-align:right;\">
   ";
-        // line 160
+        // line 161
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "save", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
         echo "
   </div>
 
   ";
-        // line 166
-        echo "  ";
         // line 167
+        echo "  ";
+        // line 168
         echo "
   ";
-        // line 169
+        // line 170
         echo "  ";
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
         echo "
@@ -273,7 +279,7 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
 
     public function getDebugInfo()
     {
-        return array (  252 => 169,  249 => 167,  247 => 166,  241 => 160,  238 => 159,  166 => 88,  162 => 85,  153 => 77,  149 => 75,  141 => 69,  134 => 65,  127 => 60,  118 => 55,  111 => 51,  103 => 45,  98 => 43,  94 => 42,  91 => 41,  83 => 36,  76 => 32,  70 => 29,  67 => 27,  58 => 21,  51 => 17,  45 => 14,  42 => 12,  36 => 9,  31 => 6,  25 => 2,);
+        return array (  258 => 170,  255 => 168,  253 => 167,  247 => 161,  244 => 160,  172 => 89,  168 => 86,  159 => 78,  155 => 76,  147 => 70,  140 => 66,  133 => 61,  124 => 56,  117 => 52,  109 => 46,  104 => 44,  100 => 43,  97 => 42,  89 => 37,  82 => 33,  76 => 30,  73 => 28,  70 => 26,  62 => 22,  55 => 18,  49 => 15,  46 => 13,  44 => 12,  42 => 11,  36 => 9,  31 => 6,  25 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -296,6 +302,7 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
   {# Les erreurs générales du formulaire. #}
   {{ form_errors(form) }}
 
+  {% if form.date is defined %}
   {# Génération du label + error + widget pour un champ. #}
     <div class=\"form-group\">
     {# Génération du label. #}
@@ -309,7 +316,7 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
       {{ form_widget(form.date) }}
     </div>
   </div>
-
+  {% endif %}
 
   {# Génération manuelle et éclatée : #}
   <div class=\"form-group\">
