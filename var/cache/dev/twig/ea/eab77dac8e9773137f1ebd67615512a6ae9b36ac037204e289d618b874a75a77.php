@@ -126,24 +126,30 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
         echo "
     </div>
   </div>
-
- <div style=\"text-align:center;\">
+  
   ";
-        // line 61
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "published", array()), 'row');
-        echo "
+        // line 60
+        if ($this->getAttribute(($context["form"] ?? null), "pusblished", array(), "any", true, true)) {
+            // line 61
+            echo " <div style=\"text-align:center;\">
+  ";
+            // line 62
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "published", array()), 'row');
+            echo "
 </div>
-
- <div class=\"form-group\">
+";
+        }
+        // line 65
+        echo " <div class=\"form-group\">
    ";
-        // line 66
+        // line 67
         echo "    ";
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "image", array()), 'label', array("label_attr" => array("class" => "col-sm-2 control-label"), "label" => "Image"));
         echo "
 
      <div class=\"col-sm-10\">
       ";
-        // line 70
+        // line 71
         echo "      ";
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "image", array()), 'widget');
         echo "
@@ -151,11 +157,11 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
   </div>
  
 ";
-        // line 76
+        // line 77
         echo " <div class=\"form-group\">
  <div style=\"width:80%; margin:0 auto;\">
   ";
-        // line 78
+        // line 79
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "categories", array()), 'row');
         echo "
   </div>
@@ -164,11 +170,11 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
 
 
 ";
-        // line 86
+        // line 87
         echo "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
 
 ";
-        // line 89
+        // line 90
         echo "<script type=\"text/javascript\">
   \$(document).ready(function() {
     // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
@@ -240,21 +246,21 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
 
 
   ";
-        // line 160
+        // line 161
         echo "   <div style=\"text-align:right;\">
   ";
-        // line 161
+        // line 162
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "save", array()), 'widget', array("attr" => array("class" => "btn btn-primary")));
         echo "
   </div>
 
   ";
-        // line 167
-        echo "  ";
         // line 168
+        echo "  ";
+        // line 169
         echo "
   ";
-        // line 170
+        // line 171
         echo "  ";
         echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
         echo "
@@ -279,7 +285,7 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
 
     public function getDebugInfo()
     {
-        return array (  258 => 170,  255 => 168,  253 => 167,  247 => 161,  244 => 160,  172 => 89,  168 => 86,  159 => 78,  155 => 76,  147 => 70,  140 => 66,  133 => 61,  124 => 56,  117 => 52,  109 => 46,  104 => 44,  100 => 43,  97 => 42,  89 => 37,  82 => 33,  76 => 30,  73 => 28,  70 => 26,  62 => 22,  55 => 18,  49 => 15,  46 => 13,  44 => 12,  42 => 11,  36 => 9,  31 => 6,  25 => 2,);
+        return array (  264 => 171,  261 => 169,  259 => 168,  253 => 162,  250 => 161,  178 => 90,  174 => 87,  165 => 79,  161 => 77,  153 => 71,  146 => 67,  143 => 65,  137 => 62,  134 => 61,  132 => 60,  124 => 56,  117 => 52,  109 => 46,  104 => 44,  100 => 43,  97 => 42,  89 => 37,  82 => 33,  76 => 30,  73 => 28,  70 => 26,  62 => 22,  55 => 18,  49 => 15,  46 => 13,  44 => 12,  42 => 11,  36 => 9,  31 => 6,  25 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -350,11 +356,12 @@ class __TwigTemplate_54523222a259678b2133901576174f1f39502c0fcfe62a909974d6f7156
       {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
     </div>
   </div>
-
+  
+  {% if form.pusblished is defined %}
  <div style=\"text-align:center;\">
   {{ form_row(form.published) }}
 </div>
-
+{% endif %}
  <div class=\"form-group\">
    {# Génération du label. #}
     {{ form_label(form.image, \"Image\", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}

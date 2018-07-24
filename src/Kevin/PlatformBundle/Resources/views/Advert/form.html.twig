@@ -56,11 +56,12 @@
       {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
     </div>
   </div>
-
+  
+  {% if form.pusblished is defined %}
  <div style="text-align:center;">
   {{ form_row(form.published) }}
 </div>
-
+{% endif %}
  <div class="form-group">
    {# Génération du label. #}
     {{ form_label(form.image, "Image", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}

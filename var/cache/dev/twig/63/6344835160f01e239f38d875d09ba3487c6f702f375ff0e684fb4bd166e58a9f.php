@@ -81,14 +81,16 @@ class __TwigTemplate_d573b00ba0f25b665c9bcb7180e0e75b5ebf3c4da677a53c5907cfacf45
             echo "        <div style=display:block\">
             <img style=\"width:50%;\" src=\"";
             // line 14
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "image", array()), "url", array()), "html", null, true);
-            echo "\" alt=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl((((($this->getAttribute($this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "image", array()), "uploadDir", array()) . "/") . $this->getAttribute($this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "image", array()), "id", array())) . ".") . $this->getAttribute($this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "image", array()), "url", array()))), "html", null, true);
+            echo "\"
+            alt=\"";
+            // line 15
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "image", array()), "alt", array()), "html", null, true);
-            echo "\">
+            echo "\"\">
         </div>
         ";
         }
-        // line 17
+        // line 18
         echo "    <i>Par ";
         echo twig_escape_filter($this->env, $this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "author", array()), "html", null, true);
         echo ", le ";
@@ -98,28 +100,28 @@ class __TwigTemplate_d573b00ba0f25b665c9bcb7180e0e75b5ebf3c4da677a53c5907cfacf45
     <div class=\"well\">
         
         ";
-        // line 21
+        // line 22
         echo twig_escape_filter($this->env, $this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "content", array()), "html", null, true);
         echo "
     </div>
     <h3> Candidature </h3>
      ";
-        // line 24
+        // line 25
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["listApplications"] ?? $this->getContext($context, "listApplications")));
         foreach ($context['_seq'] as $context["_key"] => $context["adverte"]) {
-            // line 25
+            // line 26
             echo "     <table>
      <tr>   
      <th><p> ";
-            // line 27
+            // line 28
             echo twig_escape_filter($this->env, $this->getAttribute($context["adverte"], "author", array()), "html", null, true);
             echo " </p>
      </th>
      </tr>
      <tr>
      <td><p> ";
-            // line 31
+            // line 32
             echo twig_escape_filter($this->env, $this->getAttribute($context["adverte"], "content", array()), "html", null, true);
             echo " </p>
      </td>
@@ -130,16 +132,16 @@ class __TwigTemplate_d573b00ba0f25b665c9bcb7180e0e75b5ebf3c4da677a53c5907cfacf45
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['adverte'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 36
+        // line 37
         echo "     <hr/>
     ";
-        // line 37
+        // line 38
         if ( !$this->getAttribute($this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "categories", array()), "empty", array())) {
-            // line 38
+            // line 39
             echo "        <p>
             Cette annonce est parue dans les catégories suivantes :
             ";
-            // line 40
+            // line 41
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "categories", array()));
             $context['loop'] = array(
@@ -156,13 +158,13 @@ class __TwigTemplate_d573b00ba0f25b665c9bcb7180e0e75b5ebf3c4da677a53c5907cfacf45
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-                // line 41
+                // line 42
                 echo "                ";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["category"], "name", array()), "html", null, true);
                 if ( !$this->getAttribute($context["loop"], "last", array())) {
                     echo ", ";
                 }
-                // line 42
+                // line 43
                 echo "            ";
                 ++$context['loop']['index0'];
                 ++$context['loop']['index'];
@@ -176,25 +178,25 @@ class __TwigTemplate_d573b00ba0f25b665c9bcb7180e0e75b5ebf3c4da677a53c5907cfacf45
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 43
+            // line 44
             echo "        </p>
     ";
         }
-        // line 45
+        // line 46
         echo "
     ";
-        // line 46
+        // line 47
         if ((twig_length_filter($this->env, ($context["listAdvertSkills"] ?? $this->getContext($context, "listAdvertSkills"))) > 0)) {
-            // line 47
+            // line 48
             echo "  <div>
     Cette annonce requiert les compétences suivantes :
     <ul>
       ";
-            // line 50
+            // line 51
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["listAdvertSkills"] ?? $this->getContext($context, "listAdvertSkills")));
             foreach ($context['_seq'] as $context["_key"] => $context["advertSkill"]) {
-                // line 51
+                // line 52
                 echo "        <li>";
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["advertSkill"], "skill", array()), "name", array()), "html", null, true);
                 echo " : niveau ";
@@ -205,30 +207,30 @@ class __TwigTemplate_d573b00ba0f25b665c9bcb7180e0e75b5ebf3c4da677a53c5907cfacf45
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['advertSkill'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 53
+            // line 54
             echo "    </ul>
   </div>
 ";
         }
-        // line 56
+        // line 57
         echo "
     <p>
         <a href=\"";
-        // line 58
+        // line 59
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("kevin_platform_home");
         echo "\" class=\"btn btn-default\">
             <i class=\"glyphicon glyphicon-chevron-left\"></i>
             Retour à la liste
         </a>
         <a href=\"";
-        // line 62
+        // line 63
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("kevin_platform_edit", array("id" => $this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "id", array()))), "html", null, true);
         echo "\" class=\"btn btn-default\">
             <i class=\"glyphicon glyphicon-edit\"></i>
             Modifier l'annonce
         </a>
         <a href=\"";
-        // line 66
+        // line 67
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("kevin_platform_delete", array("id" => $this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "id", array()))), "html", null, true);
         echo "\" class=\"btn btn-danger\">
             <i class=\"glyphicon glyphicon-trash\"></i>
@@ -257,7 +259,7 @@ class __TwigTemplate_d573b00ba0f25b665c9bcb7180e0e75b5ebf3c4da677a53c5907cfacf45
 
     public function getDebugInfo()
     {
-        return array (  232 => 66,  225 => 62,  218 => 58,  214 => 56,  209 => 53,  198 => 51,  194 => 50,  189 => 47,  187 => 46,  184 => 45,  180 => 43,  166 => 42,  160 => 41,  143 => 40,  139 => 38,  137 => 37,  134 => 36,  123 => 31,  116 => 27,  112 => 25,  108 => 24,  102 => 21,  92 => 17,  84 => 14,  81 => 13,  79 => 12,  75 => 11,  72 => 10,  63 => 9,  50 => 6,  41 => 5,  11 => 3,);
+        return array (  234 => 67,  227 => 63,  220 => 59,  216 => 57,  211 => 54,  200 => 52,  196 => 51,  191 => 48,  189 => 47,  186 => 46,  182 => 44,  168 => 43,  162 => 42,  145 => 41,  141 => 39,  139 => 38,  136 => 37,  125 => 32,  118 => 28,  114 => 26,  110 => 25,  104 => 22,  94 => 18,  88 => 15,  84 => 14,  81 => 13,  79 => 12,  75 => 11,  72 => 10,  63 => 9,  50 => 6,  41 => 5,  11 => 3,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -283,7 +285,8 @@ class __TwigTemplate_d573b00ba0f25b665c9bcb7180e0e75b5ebf3c4da677a53c5907cfacf45
     <h2>{{ advert.title }}</h2>
     {% if advert.image is not null %}
         <div style=display:block\">
-            <img style=\"width:50%;\" src=\"{{ advert.image.url }}\" alt=\"{{ advert.image.alt }}\">
+            <img style=\"width:50%;\" src=\"{{ asset(advert.image.uploadDir ~ '/' ~ advert.image.id ~ '.' ~ advert.image.url) }}\"
+            alt=\"{{ advert.image.alt }}\"\">
         </div>
         {% endif %}
     <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>

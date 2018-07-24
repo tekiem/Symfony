@@ -99,10 +99,11 @@ class AdvertController extends Controller
     {
     // On crée un objet Advert
     $advert = new Advert();
-    $form = $this->createForm(AdvertType::class, $advert);
+    $form = $this->get('form.factory')->create(AdvertType::class, $advert);
 
         // Si la requête est en POST
     if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+     // $advert->getImage()->upload();
       $em = $this->getDoctrine()->getManager();
       $em->persist($advert);
       $em->flush();
@@ -135,10 +136,10 @@ class AdvertController extends Controller
           throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
+        $form = $this->get('form.factory')->create(AdvertEditType::class, $advert);
+
         // Même mécanisme que pour l'ajout
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($advert);
             $em->flush(); 
             $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
 
@@ -151,30 +152,34 @@ class AdvertController extends Controller
         ));
     }
 
-    public function deleteAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
+    public function deleteAction(Request $request, $id)
+  {
+    $em = $this->getDoctrine()->getManager();
 
-        // On récupère l'annonce $id
-        $advert = $em->getRepository('KevinPlatformBundle:Advert')->find($id);
+    $advert = $em->getRepository('KevinPlatformBundle:Advert')->find($id);
 
-        if (null === $advert) {
-          throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
-        }
-
-        // On boucle sur les catégories de l'annonce pour les supprimer
-        foreach ($advert->getCategories() as $category) {
-          $advert->removeCategory($category);
-        }
-
-        // Pour persister le changement dans la relation, il faut persister l'entité propriétaire
-        // Ici, Advert est le propriétaire, donc inutile de la persister car on l'a récupérée depuis Doctrine
-
-        // On déclenche la modification
-        $em->flush();
-
-        return $this->render('KevinPlatformBundle:Advert:delete.html.twig');
+    if (null === $advert) {
+      throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
     }
+
+    // On crée un formulaire vide, qui ne contiendra que le champ CSRF
+    // Cela permet de protéger la suppression d'annonce contre cette faille
+    $form = $this->get('form.factory')->create();
+
+    if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+      $em->remove($advert);
+      $em->flush();
+
+      $request->getSession()->getFlashBag()->add('info', "L'annonce a bien été supprimée.");
+
+      return $this->redirectToRoute('kevin_platform_home');
+    }
+    
+    return $this->render('KevinPlatformBundle:Advert:delete.html.twig', array(
+      'advert' => $advert,
+      'form'   => $form->createView(),
+    ));
+  }
 
     public function menuAction($limit)
     {
