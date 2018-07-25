@@ -11,7 +11,7 @@
     <h2>{{ advert.title }}</h2>
     {% if advert.image is not null %}
         <div style=display:block">
-            <img style="width:50%;" src="{{ asset(advert.image.uploadDir ~ '/' ~ advert.image.id ~ '.' ~ advert.image.url) }}"
+            <img style="width:250px;" src="{{ asset(advert.image.uploadDir ~ '/' ~ advert.image.id ~ '.' ~ advert.image.url) }}"
             alt="{{ advert.image.alt }}"">
         </div>
         {% endif %}

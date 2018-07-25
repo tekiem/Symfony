@@ -79,7 +79,7 @@ class __TwigTemplate_d573b00ba0f25b665c9bcb7180e0e75b5ebf3c4da677a53c5907cfacf45
         if ( !(null === $this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "image", array()))) {
             // line 13
             echo "        <div style=display:block\">
-            <img style=\"width:50%;\" src=\"";
+            <img style=\"width:250px;\" src=\"";
             // line 14
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl((((($this->getAttribute($this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "image", array()), "uploadDir", array()) . "/") . $this->getAttribute($this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "image", array()), "id", array())) . ".") . $this->getAttribute($this->getAttribute(($context["advert"] ?? $this->getContext($context, "advert")), "image", array()), "url", array()))), "html", null, true);
             echo "\"
@@ -285,7 +285,7 @@ class __TwigTemplate_d573b00ba0f25b665c9bcb7180e0e75b5ebf3c4da677a53c5907cfacf45
     <h2>{{ advert.title }}</h2>
     {% if advert.image is not null %}
         <div style=display:block\">
-            <img style=\"width:50%;\" src=\"{{ asset(advert.image.uploadDir ~ '/' ~ advert.image.id ~ '.' ~ advert.image.url) }}\"
+            <img style=\"width:250px;\" src=\"{{ asset(advert.image.uploadDir ~ '/' ~ advert.image.id ~ '.' ~ advert.image.url) }}\"
             alt=\"{{ advert.image.alt }}\"\">
         </div>
         {% endif %}

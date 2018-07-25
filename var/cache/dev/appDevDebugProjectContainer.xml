@@ -465,6 +465,12 @@
   </parameters>
   <services>
     <service id="service_container" class="Symfony\Component\DependencyInjection\ContainerInterface" synthetic="true"/>
+    <service id="kevin_platform.validator.antiflood" class="Kevin\PlatformBundle\Validator\AntifloodValidator" public="false" autowire="true" autoconfigure="true">
+      <tag name="validator.constraint_validator" alias="kevin_platform_antiflood"/>
+      <tag name="validator.constraint_validator"/>
+      <argument type="service" id="request_stack"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -626,7 +632,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>pkRP19bwn5mTedg9tI9TJk</argument>
+      <argument>7Je0Cmd+IuA9TSA00U-Guw</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -636,7 +642,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>pkRP19bwn5mTedg9tI9TJk</argument>
+      <argument>7Je0Cmd+IuA9TSA00U-Guw</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -1072,7 +1078,7 @@
       <argument type="service" id="2_18dd2098dcc79001b494a7023b6cd6e747faa594fabc7e15ed8835beb02da117"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory" public="false">
-      <argument type="service" id="service_locator.39e66930232432ca5ba91e98fdd8a17b"/>
+      <argument type="service" id="service_locator.eced8f092918f54cc0a8f72b8eeb3893"/>
     </service>
     <service id="validator.expression" class="Symfony\Component\Validator\Constraints\ExpressionValidator">
       <tag name="validator.constraint_validator" alias="validator.expression"/>
@@ -1394,14 +1400,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -2202,12 +2200,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5b55c1288cd7a2.14895405</argument>
+      <argument>5b584c4bca2222.74954216</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5b55c1288cd7a2.14895405</argument>
+      <argument>5b584c4bca2222.74954216</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3281,6 +3279,8 @@
     <service id="web_server.command.server_status" class="Symfony\Bundle\WebServerBundle\Command\ServerStatusCommand" public="false">
       <tag name="console.command"/>
     </service>
+    <service id="instanceof.Symfony\Component\Validator\ConstraintValidatorInterface.0.kevin_platform.validator.antiflood" class="Kevin\PlatformBundle\Validator\AntifloodValidator" public="false" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.kevin_platform.validator.antiflood" class="Kevin\PlatformBundle\Validator\AntifloodValidator" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="service_locator.6f24348b77840ec12a20c22a3f985cf7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection"/>
@@ -3456,14 +3456,16 @@
         <argument key="twig" type="service" id="twig"/>
       </argument>
     </service>
-    <service id="service_locator.39e66930232432ca5ba91e98fdd8a17b" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.eced8f092918f54cc0a8f72b8eeb3893" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="Kevin\PlatformBundle\Validator\AntifloodValidator" type="service" id="kevin_platform.validator.antiflood"/>
         <argument key="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator" type="service" id="doctrine.orm.validator.unique"/>
         <argument key="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator" type="service" id="security.validator.user_password"/>
         <argument key="Symfony\Component\Validator\Constraints\EmailValidator" type="service" id="validator.email"/>
         <argument key="Symfony\Component\Validator\Constraints\ExpressionValidator" type="service" id="validator.expression"/>
         <argument key="doctrine.orm.validator.unique" type="service" id="doctrine.orm.validator.unique"/>
+        <argument key="kevin_platform_antiflood" type="service" id="kevin_platform.validator.antiflood"/>
         <argument key="security.validator.user_password" type="service" id="security.validator.user_password"/>
         <argument key="validator.expression" type="service" id="validator.expression"/>
       </argument>
@@ -3479,7 +3481,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>Sr2NYiyEVw</argument>
       <argument>0</argument>
-      <argument>pkRP19bwn5mTedg9tI9TJk</argument>
+      <argument>7Je0Cmd+IuA9TSA00U-Guw</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3487,7 +3489,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>GzmsU7LRDg</argument>
       <argument>0</argument>
-      <argument>pkRP19bwn5mTedg9tI9TJk</argument>
+      <argument>7Je0Cmd+IuA9TSA00U-Guw</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3495,7 +3497,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>GWxCj80Md+</argument>
       <argument>0</argument>
-      <argument>pkRP19bwn5mTedg9tI9TJk</argument>
+      <argument>7Je0Cmd+IuA9TSA00U-Guw</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3503,7 +3505,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>46cej4WFnb</argument>
       <argument>0</argument>
-      <argument>pkRP19bwn5mTedg9tI9TJk</argument>
+      <argument>7Je0Cmd+IuA9TSA00U-Guw</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
