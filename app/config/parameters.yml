@@ -7,6 +7,6 @@ parameters:
     database_password: null
     mailer_transport: smtp
     mailer_host: 127.0.0.1
-    mailer_user: null
+    mailer_user: 'kevdeplc@hotmail.fr'
     mailer_password: null
     secret: 8aad6e9ec273612bf82544dc9b49a03c6ac1972f

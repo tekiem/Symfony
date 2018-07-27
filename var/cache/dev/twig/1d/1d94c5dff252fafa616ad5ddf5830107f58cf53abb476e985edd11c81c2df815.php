@@ -61,29 +61,59 @@ class __TwigTemplate_7e839f293ccfa49697f06c4c1a10fa5d37c3451f262f9ad1ac85bb365d2
 
     <div class=\"row\">
         <div id=\"menu\" class=\"col-md-3\">
+            <h3> Contact </h3>
+            <ul class=\"nav nav-pills nav-stacked\">
+                ";
+        // line 36
+        if ($this->env->getExtension('Symfony\Bridge\Twig\Extension\SecurityExtension')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 37
+            echo "                Connecté en tant que ";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["app"] ?? $this->getContext($context, "app")), "user", array()), "username", array()), "html", null, true);
+            echo "
+                -
+                <li><a href=\"";
+            // line 39
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_security_logout");
+            echo "\">Déconnexion</a></li>
+                ";
+        } else {
+            // line 41
+            echo "                <li><a href=\"";
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_security_login");
+            echo "\">Connexion</a></li>
+                ";
+        }
+        // line 43
+        echo "            </ul>
             <h3>Les annonces</h3>
             <ul class=\"nav nav-pills nav-stacked\">
                 <li><a href=\"";
-        // line 36
+        // line 46
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("kevin_platform_home");
         echo "\">Accueil</a></li>
-                <li><a href=\"";
-        // line 37
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("kevin_platform_add");
-        echo "\">Ajouter une annonce</a></li>
-            </ul>
+                ";
+        // line 47
+        if ($this->env->getExtension('Symfony\Bridge\Twig\Extension\SecurityExtension')->isGranted("ROLE_AUTEUR")) {
+            // line 48
+            echo "                <li><a href=\"";
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("kevin_platform_add");
+            echo "\">Ajouter une annonce</a></li>
+                ";
+        }
+        // line 50
+        echo "            </ul>
 
             <h4>Dernières annonces</h4>
             ";
-        // line 41
+        // line 53
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("KevinPlatformBundle:Advert:menu", array("limit" => 3)));
         echo "
         </div>
         <div id=\"content\" class=\"col-md-9\">
             ";
-        // line 44
+        // line 56
         $this->displayBlock('body', $context, $blocks);
-        // line 46
+        // line 58
         echo "        </div>
     </div>
 
@@ -91,16 +121,16 @@ class __TwigTemplate_7e839f293ccfa49697f06c4c1a10fa5d37c3451f262f9ad1ac85bb365d2
 
     <footer>
         <p>The sky's the limit © ";
-        // line 52
+        // line 64
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
         echo " and beyond.</p>
     </footer>
 </div>
 
 ";
-        // line 56
+        // line 68
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 61
+        // line 73
         echo "
 </body>
 </html>";
@@ -152,7 +182,7 @@ class __TwigTemplate_7e839f293ccfa49697f06c4c1a10fa5d37c3451f262f9ad1ac85bb365d2
 
     }
 
-    // line 44
+    // line 56
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -161,7 +191,7 @@ class __TwigTemplate_7e839f293ccfa49697f06c4c1a10fa5d37c3451f262f9ad1ac85bb365d2
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 45
+        // line 57
         echo "            ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -171,7 +201,7 @@ class __TwigTemplate_7e839f293ccfa49697f06c4c1a10fa5d37c3451f262f9ad1ac85bb365d2
 
     }
 
-    // line 56
+    // line 68
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -180,9 +210,9 @@ class __TwigTemplate_7e839f293ccfa49697f06c4c1a10fa5d37c3451f262f9ad1ac85bb365d2
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 57
+        // line 69
         echo "    ";
-        // line 58
+        // line 70
         echo "    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
     <script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
 ";
@@ -206,7 +236,7 @@ class __TwigTemplate_7e839f293ccfa49697f06c4c1a10fa5d37c3451f262f9ad1ac85bb365d2
 
     public function getDebugInfo()
     {
-        return array (  186 => 58,  184 => 57,  175 => 56,  165 => 45,  156 => 44,  145 => 13,  143 => 12,  134 => 11,  116 => 9,  104 => 61,  102 => 56,  95 => 52,  87 => 46,  85 => 44,  79 => 41,  72 => 37,  68 => 36,  45 => 15,  43 => 11,  38 => 9,  29 => 2,);
+        return array (  216 => 70,  214 => 69,  205 => 68,  195 => 57,  186 => 56,  175 => 13,  173 => 12,  164 => 11,  146 => 9,  134 => 73,  132 => 68,  125 => 64,  117 => 58,  115 => 56,  109 => 53,  104 => 50,  98 => 48,  96 => 47,  92 => 46,  87 => 43,  81 => 41,  76 => 39,  70 => 37,  68 => 36,  45 => 15,  43 => 11,  38 => 9,  29 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -252,10 +282,22 @@ class __TwigTemplate_7e839f293ccfa49697f06c4c1a10fa5d37c3451f262f9ad1ac85bb365d2
 
     <div class=\"row\">
         <div id=\"menu\" class=\"col-md-3\">
+            <h3> Contact </h3>
+            <ul class=\"nav nav-pills nav-stacked\">
+                {% if is_granted(\"IS_AUTHENTICATED_REMEMBERED\") %}
+                Connecté en tant que {{ app.user.username }}
+                -
+                <li><a href=\"{{ path('fos_user_security_logout') }}\">Déconnexion</a></li>
+                {% else %}
+                <li><a href=\"{{ path('fos_user_security_login') }}\">Connexion</a></li>
+                {% endif %}
+            </ul>
             <h3>Les annonces</h3>
             <ul class=\"nav nav-pills nav-stacked\">
                 <li><a href=\"{{ path('kevin_platform_home') }}\">Accueil</a></li>
+                {% if is_granted('ROLE_AUTEUR') %}
                 <li><a href=\"{{ path('kevin_platform_add') }}\">Ajouter une annonce</a></li>
+                {% endif %}
             </ul>
 
             <h4>Dernières annonces</h4>

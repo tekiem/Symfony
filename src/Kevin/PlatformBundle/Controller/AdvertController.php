@@ -24,6 +24,8 @@ use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class AdvertController extends Controller
 {
@@ -95,6 +97,9 @@ class AdvertController extends Controller
         
     }
 
+    /**
+    * @Security("has_role('ROLE_AUTEUR')")
+    */
     public function addAction(Request $request)
     {
     // On crée un objet Advert
