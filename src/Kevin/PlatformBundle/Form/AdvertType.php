@@ -15,6 +15,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Kevin\PlatformBundle\repository\CategoryRepository;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 
 class AdvertType extends AbstractType
@@ -30,7 +31,7 @@ class AdvertType extends AbstractType
       ->add('date',      DateTimeType::class)
       ->add('title',     TextType::class)
       ->add('author',    TextType::class)
-      ->add('content',   TextareaType::class)
+      ->add('content',   CkeditorType::class)
       ->add('image',     ImageType::class) // Ajoutez cette ligne
       ->add('categories', EntityType::class, array(
         'class'         => 'KevinPlatformBundle:Category',

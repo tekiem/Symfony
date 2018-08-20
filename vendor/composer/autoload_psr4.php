@@ -36,6 +36,7 @@ return array(
     'Gedmo\\' => array($vendorDir . '/gedmo/doctrine-extensions/lib/Gedmo'),
     'Fig\\Link\\' => array($vendorDir . '/fig/link-util/src'),
     'FOS\\UserBundle\\' => array($vendorDir . '/friendsofsymfony/user-bundle'),
+    'FOS\\CKEditorBundle\\' => array($vendorDir . '/friendsofsymfony/ckeditor-bundle/src'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib/Doctrine/Common/Inflector'),
     'Doctrine\\Common\\DataFixtures\\' => array($vendorDir . '/doctrine/data-fixtures/lib/Doctrine/Common/DataFixtures'),

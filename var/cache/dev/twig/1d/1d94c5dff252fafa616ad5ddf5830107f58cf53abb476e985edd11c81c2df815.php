@@ -323,6 +323,6 @@ class __TwigTemplate_7e839f293ccfa49697f06c4c1a10fa5d37c3451f262f9ad1ac85bb365d2
 {% endblock %}
 
 </body>
-</html>", "::layout.html.twig", "C:\\wamp64\\www\\Symfony\\app/Resources\\views/layout.html.twig");
+</html>", "::layout.html.twig", "C:\\wamp\\www\\Symfony\\app/Resources\\views/layout.html.twig");
     }
 }

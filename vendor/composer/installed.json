@@ -1072,18 +1072,100 @@
         ]
     },
     {
+        "name": "friendsofsymfony/ckeditor-bundle",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/FriendsOfSymfony/FOSCKEditorBundle.git",
+            "reference": "8f021fd3f2728f2b4286fdd7ca5f7e4d24c3c828"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/FriendsOfSymfony/FOSCKEditorBundle/zipball/8f021fd3f2728f2b4286fdd7ca5f7e4d24c3c828",
+            "reference": "8f021fd3f2728f2b4286fdd7ca5f7e4d24c3c828",
+            "shasum": ""
+        },
+        "require": {
+            "ext-zip": "*",
+            "php": "^5.6 || ^7.0",
+            "symfony/config": "^2.7 || ^3.0 || ^4.0",
+            "symfony/dependency-injection": "^2.7 || ^3.0 || ^4.0",
+            "symfony/expression-language": "^2.7 || ^3.0 || ^4.0",
+            "symfony/form": "^2.7 || ^3.0 || ^4.0",
+            "symfony/framework-bundle": "^2.7 || ^3.0 || ^4.0",
+            "symfony/http-foundation": "^2.7 || ^3.0 || ^4.0",
+            "symfony/http-kernel": "^2.7 || ^3.0 || ^4.0",
+            "symfony/options-resolver": "^2.7 || ^3.0 || ^4.0",
+            "symfony/property-access": "^2.7 || ^3.0 || ^4.0",
+            "symfony/routing": "^2.7 || ^3.0 || ^4.0"
+        },
+        "conflict": {
+            "sebastian/environment": "<1.3.4",
+            "sebastian/exporter": "<2.0.0"
+        },
+        "require-dev": {
+            "composer/composer": "^1.0",
+            "friendsofphp/php-cs-fixer": "^2.0",
+            "matthiasnoback/symfony-dependency-injection-test": "^1.0 || ^2.0",
+            "phpunit/phpunit": "^5.0 || ^6.0",
+            "sensio/distribution-bundle": "^3.0.12 || ^4.0 || ^5.0",
+            "symfony/asset": "^2.7 || ^3.0 || ^4.0",
+            "symfony/console": "^2.7 || ^3.0 || ^4.0",
+            "symfony/phpunit-bridge": "^4.0",
+            "symfony/templating": "^2.7 || ^3.0 || ^4.0",
+            "symfony/twig-bridge": "^2.7 || ^3.0 || ^4.0",
+            "symfony/yaml": "^2.7 || ^3.0 || ^4.0",
+            "twig/twig": "^1.34 || ^2.0"
+        },
+        "suggest": {
+            "egeloen/form-extra-bundle": "Allows to load CKEditor asynchronously"
+        },
+        "time": "2018-05-25T18:07:58+00:00",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "FOS\\CKEditorBundle\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Eric GELOEN",
+                "email": "geloen.eric@gmail.com"
+            },
+            {
+                "name": "FriendsOfSymfony Community",
+                "homepage": "https://github.com/FriendsOfSymfony/FOSCKEditorBundle/graphs/contributors"
+            }
+        ],
+        "description": "Provides a CKEditor integration for your Symfony project.",
+        "keywords": [
+            "CKEditor"
+        ]
+    },
+    {
         "name": "friendsofsymfony/user-bundle",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-            "reference": "007fd9bd48a17d23b1c38b01115db202db7d989c"
+            "reference": "d41c5a9b95075e6bd95ffa11746514e3e9630539"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/007fd9bd48a17d23b1c38b01115db202db7d989c",
-            "reference": "007fd9bd48a17d23b1c38b01115db202db7d989c",
+            "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/d41c5a9b95075e6bd95ffa11746514e3e9630539",
+            "reference": "d41c5a9b95075e6bd95ffa11746514e3e9630539",
             "shasum": ""
         },
         "require": {
@@ -1104,13 +1186,13 @@
         "require-dev": {
             "doctrine/doctrine-bundle": "^1.3",
             "friendsofphp/php-cs-fixer": "^2.2",
-            "phpunit/phpunit": "^4.8.35|^5.7.11|^6.5",
+            "phpunit/phpunit": "^4.8.35 || ^5.7.11 || ^6.5",
             "swiftmailer/swiftmailer": "^4.3 || ^5.0 || ^6.0",
             "symfony/console": "^2.8 || ^3.0 || ^4.0",
             "symfony/phpunit-bridge": "^2.8 || ^3.0 || ^4.0",
             "symfony/yaml": "^2.8 || ^3.0 || ^4.0"
         },
-        "time": "2018-07-10T10:55:28+00:00",
+        "time": "2018-08-07T11:18:06+00:00",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
