@@ -715,7 +715,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>M4+C0oLB-76pAbo+YICHpR</argument>
+      <argument>liLh3GK87fdzeJFAndSrPn</argument>
       <argument>C:\wamp\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -725,7 +725,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>M4+C0oLB-76pAbo+YICHpR</argument>
+      <argument>liLh3GK87fdzeJFAndSrPn</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -1938,6 +1938,14 @@
       <call method="addListener">
         <argument>kernel.response</argument>
         <argument type="collection">
+          <argument type="service" id="kevin_platform.beta.listener"/>
+          <argument>processBeta</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.response</argument>
+        <argument type="collection">
           <argument type="service" id="response_listener"/>
           <argument>onKernelResponse</argument>
         </argument>
@@ -3041,12 +3049,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main_login" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5b7ad78a5a0254.17520502</argument>
+      <argument>5b7ae93fafb765.35028025</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main_login" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5b7ad78a5a0254.17520502</argument>
+      <argument>5b7ae93fafb765.35028025</argument>
     </service>
     <service id="security.exception_listener.main_login" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3226,12 +3234,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5b7ad78a5a0254.17520502</argument>
+      <argument>5b7ae93fafb765.35028025</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5b7ad78a5a0254.17520502</argument>
+      <argument>5b7ae93fafb765.35028025</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -4193,6 +4201,12 @@
     <service id="kevin_platform.form.ckeditor" class="Kevin\PlatformBundle\Form\CkeditorType">
       <tag name="form.type" alias="ckeditor"/>
     </service>
+    <service id="kevin_platform.beta.html_adder" class="Kevin\PlatformBundle\Beta\BetaHTMLAdder"/>
+    <service id="kevin_platform.beta.listener" class="Kevin\PlatformBundle\Beta\BetaListener">
+      <tag name="kernel.event_listener" event="kernel.response" method="processBeta"/>
+      <argument type="service" id="kevin_platform.beta.html_adder"/>
+      <argument>2018-08-15</argument>
+    </service>
     <service id="stof_doctrine_extensions.listener.sluggable" class="Gedmo\Sluggable\SluggableListener" public="false">
       <tag name="doctrine.event_subscriber" connection="default"/>
       <call method="setAnnotationReader">
@@ -4886,7 +4900,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>bIbiCKSZCV</argument>
       <argument>0</argument>
-      <argument>M4+C0oLB-76pAbo+YICHpR</argument>
+      <argument>liLh3GK87fdzeJFAndSrPn</argument>
       <argument>C:\wamp\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4894,7 +4908,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>wbdm7ZCYYY</argument>
       <argument>0</argument>
-      <argument>M4+C0oLB-76pAbo+YICHpR</argument>
+      <argument>liLh3GK87fdzeJFAndSrPn</argument>
       <argument>C:\wamp\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4902,7 +4916,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>xLqUYpAFRa</argument>
       <argument>0</argument>
-      <argument>M4+C0oLB-76pAbo+YICHpR</argument>
+      <argument>liLh3GK87fdzeJFAndSrPn</argument>
       <argument>C:\wamp\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4910,7 +4924,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>JBSDTtBNcW</argument>
       <argument>0</argument>
-      <argument>M4+C0oLB-76pAbo+YICHpR</argument>
+      <argument>liLh3GK87fdzeJFAndSrPn</argument>
       <argument>C:\wamp\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

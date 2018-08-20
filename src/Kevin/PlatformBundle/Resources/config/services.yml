@@ -3,3 +3,14 @@ services:
     class: Kevin\PlatformBundle\Form\CkeditorType
     tags:
       - { name: form.type, alias: ckeditor }
+
+  kevin_platform.beta.html_adder:
+    class: Kevin\PlatformBundle\Beta\BetaHTMLAdder
+
+  kevin_platform.beta.listener:
+    class: Kevin\PlatformBundle\Beta\BetaListener
+    arguments:
+      - "@kevin_platform.beta.html_adder"
+      - "2018-08-15"
+    tags:
+      - { name: kernel.event_listener, event: kernel.response,   method: processBeta }
